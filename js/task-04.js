@@ -1,11 +1,16 @@
-// Лічильник складається зі спану і кнопок, які по кліку повинні збільшувати і зменшувати його значення на одиницю.
+const decrementBtn = document.querySelector('[data-action="decrement"]');
+const incrementBtn = document.querySelector('[data-action="increment"]');
+const valueSpan = document.querySelector('#value');
+let counterValue = 0;
 
-// <div id="counter">
-//   <button type="button" data-action="decrement">-1</button>
-//   <span id="value">0</span>
-//   <button type="button" data-action="increment">+1</button>
-// </div>
+decrementBtn.addEventListener('click', onBtnDecrement);
+incrementBtn.addEventListener('click', onBtnIncrement);
 
-//     Створи змінну counterValue, в якій буде зберігатися поточне значення лічильника та ініціалізуй її значенням 0.
-//     Додай слухачів кліків до кнопок, всередині яких збільшуй або зменшуй значення лічильника.
-//     Оновлюй інтерфейс новим значенням змінної counterValue.
+function onBtnDecrement(event) {
+    counterValue -= 1;
+    valueSpan.textContent = counterValue;
+}
+function onBtnIncrement(event) {
+    counterValue += 1;
+    valueSpan.textContent = counterValue;
+}
